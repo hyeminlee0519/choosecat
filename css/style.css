@@ -1,0 +1,70 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Sunflower:wght@300&display=swap');
+html,body{font-family: "Source Code Pro","Sunflower", monospace, sans-serif; color: #888;}
+
+.container{display: flex;}
+.header{width: 400px; height: 100vh; background: linear-gradient(-45deg, #fff, #ffaaaa); color: #fff; position: fixed; left: 0 ; top: 0; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; padding: 250px 60px 80px; transition: all 0.5s;}
+.logo{font-size: 50px;}
+.line{border-bottom: 2px solid rgba(255, 255, 255, 0.6); width: 150px; margin: 15px 0;}
+.title::after{content: '고양이는 정말 귀여워'; font-size: 15px; opacity: 0.6; letter-spacing: 2px;}
+
+.sns{display: flex;  justify-content: space-evenly; width: 100%;}
+.sns>li{opacity: 0.7; font-size: 13px; color: #e42a2a;}
+.sns>li i{margin-right: 5px;}
+.sns>li:hover{opacity: 1;}
+
+
+.contents{background-color: #f5eded; width: 100%; padding-left: 400px; box-sizing: border-box; min-height: 100vh; padding: 30px 0 30px 400px;}
+/*header가 position:fixed를 가져서 뜨기 때문에 넓이를 100%로, 마진을 줌/ 스크롤로 늘어나야 하기 때문에 높이는 주지 않는다*/
+.btns{display: flex; align-items: center;  flex-direction: row-reverse; padding-right: 15px;}
+.btns>li{width: 100px; height: 26px; background-color: #fff; border-radius: 5px; line-height: 26px; font-size: 11px; text-align: center; cursor: pointer; color: #999; box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2); margin-right: 15px;}
+.active{color: #fff !important; background: linear-gradient(45deg, #fff, #ff6464) !important; box-shadow: 1px 1px 10px rgba(255, 117, 117, 0.5) !important;}
+
+.box_wrap{display: flex; flex-wrap: wrap; box-sizing: border-box; align-items: flex-start; margin: 15px;}
+.box{width: 20%; box-sizing: border-box; padding: 12px; }
+.inner{background-color: #fff; padding: 14px; border-radius: 4px; box-sizing: border-box; width: 100%; height: 100%; box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); overflow: hidden;}
+.inner a{display: block;}
+.inner img{width: 100%;}
+.inner p:nth-of-type(1){font-weight: bold; font-size: 13px; line-height: 30px;}
+.inner p:nth-of-type(2){font-size: 9px; color: #999;}
+
+/*1600px - 4개*/
+@media all and (max-width:1600px){
+  .box{width: 25%;}
+  .header{width: 350px; }
+  .sns{flex-wrap: wrap;}
+  .sns>li{margin-bottom: 10px;}
+}
+
+/*~1200px - 4개 + header 위치*/
+@media all and (max-width:1200px){
+  .header{width: 100%; height: 90px; padding: 0 30px; z-index: 10; flex-direction: row; align-items: center; position: absolute;}
+  .logo{font-size: 3vw;}
+  .line, .title::after{display: none;}
+  .sns{width: 250px; justify-content: space-evenly;}
+  .sns>li{width: 30px; overflow: hidden; white-space: nowrap;}
+  .sns>li i{font-size: 27px;}
+  .contents{padding: 120px 10px;}
+}
+
+
+/*~900 - 3개*/
+@media all and (max-width:900px){
+  .box{width: 33.3%;}
+}
+
+/*~680 - 2개*/
+@media all and (max-width:680px){
+  .box{width: 50%;}
+  .logo{font-size: 30px;}
+  .sns{width: 150px; }
+}
+
+
+/*~540 - 1개*/
+@media all and (max-width:540px){
+  .box{width: 100%;}
+  .sns{display: none;}
+  .btns{justify-content: space-between; padding: 0 6%;}
+  .btns>li{width: 23%; margin: 0;}
+}
